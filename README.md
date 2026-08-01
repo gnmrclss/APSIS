@@ -33,21 +33,12 @@ An advanced, offline-capable unified console and tactical suite designed for **S
 
 ---
 
-## 📁 Project Structure
+## 🤝 Contributing
 
-```text
-sc-4.9-console/
-├── index.html              # Main unified web console interface
-├── css/
-│   └── styles.css          # Sci-fi HUD styling (RSI / Aegis inspired dark theme)
-├── js/
-│   ├── scanner.js          # RS signature and telemetry logic
-│   ├── mining.js           # Rock fracture & resource calculation models
-│   ├── shipconfig.js       # Ship loadout and power grid simulation
-│   └── ui.js               # Interactive dashboard controllers
-├── data/
-│   ├── minerals.json       # Alpha 4.9 mining yield and stability data
-│   ├── ships.json          # Hull specifications, hardpoints, and power pools
-│   └── locations.json      # Stanton system planetary & belt coordinates
-├── README.md               # Project documentation
-└── LICENSE                 # MIT License
+**I am completely open to additions, feature suggestions, and modifications!** Feel free to reach out or submit a pull request.
+
+---
+
+## 📜 License
+
+Distributed under the MIT License.
