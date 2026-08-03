@@ -1,6 +1,6 @@
 # APSIS
 
-**An offline companion for Star Citizen Alpha 4.9 — mining, ships, crafting and getting around, in a single HTML file.**
+**A downloadable, online companion for Star Citizen Alpha 4.9 — mining, ships, crafting and getting around, in a single HTML file.**
 
 > An *apsis* is the point where an orbit reverses direction — the turn that sets up everything after it.
 
