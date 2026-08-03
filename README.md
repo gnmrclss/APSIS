@@ -1,7 +1,10 @@
-# SC Console
+# APSIS
 
 **An offline companion for Star Citizen Alpha 4.9 — mining, ships, crafting and getting around, in a single HTML file.**
 
+> An *apsis* is the point where an orbit reverses direction — the turn that sets up everything after it.
+
+![Version](https://img.shields.io/badge/APSIS-1.0_·_Hurston-6fd3e8?style=flat-square)
 ![Star Citizen](https://img.shields.io/badge/Star_Citizen-Alpha_4.9-ff8a3d?style=flat-square)
 ![Game build](https://img.shields.io/badge/build-4.9.0--LIVE.12232306-6fd3e8?style=flat-square)
 ![Single file](https://img.shields.io/badge/single_file-1.5_MB-58e0b8?style=flat-square)
@@ -9,7 +12,11 @@
 ![Languages](https://img.shields.io/badge/languages-10-b98cff?style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey?style=flat-square)
 
-Open `sc-console.html` in any browser. That's the whole installation. No server, no build step, no network calls — the data is baked in, so it works on a second monitor while the game has your GPU, and it works when you're on a plane.
+**Live:** hosted on GitHub Pages — link in the repo sidebar.
+
+Or download `apsis.html` and open it locally. That's the whole installation. No server, no build step, no backend — the data is baked in, so it works on a second monitor while the game has your GPU, and it works with the network off.
+
+The file is 1.5 MB but compresses to **254 KB** over HTTP, so it loads like a normal page and then never talks to a server again.
 
 ---
 
@@ -26,6 +33,7 @@ Open `sc-console.html` in any browser. That's the whole installation. No server,
 | **13** mining lasers · **27** modules · **6** gadgets | with their real modifier values |
 | **5** cities · **31** shops | transit routes and what's sold where |
 | **10** languages | 689 dictionary entries, 6,201 translations |
+| **254 KB** gzipped | loads once, then works offline |
 
 ---
 
@@ -102,7 +110,7 @@ scdata/
 ├── build_tool4.py     # ship configurator
 ├── build_mining.py    # mining terminal
 ├── build_craft.py     # crafting terminal
-└── build_app.py       # merges everything into sc-console.html
+└── build_app.py       # merges everything into apsis.html
 ```
 
 ```bash
@@ -110,10 +118,20 @@ python3 extract2.py       # needs ships.json + ship-items.json from the dump
 python3 build_tool4.py
 python3 build_mining.py
 python3 build_craft.py
-python3 build_app.py      # → sc-console.html
+python3 build_app.py      # → apsis.html
 ```
 
 The merge step namespaces each tool into an isolated module — they were written independently and share global names — then injects the shared datasets once instead of three times.
+
+### Deploying
+
+Everything is static. Drop `apsis.html` (rename to `index.html` if you want a bare URL), `preview.png` and `README.md` in the repo and GitHub Pages serves it as-is.
+
+One thing to set: `SITE_URL` at the top of `build_app.py`. It fills `og:url`, the canonical link and the absolute path to the preview image. Twitter/X and Facebook require absolute URLs for preview images; Discord and Slack resolve relative ones fine.
+
+```python
+SITE_URL = 'https://<user>.github.io/<repo>/'
+```
 
 ### Tests
 
@@ -152,6 +170,6 @@ Corrections to the data are the most useful thing — especially abundance figur
 
 ## License
 
-MIT. Unofficial tool, not affiliated with Cloud Imperium Games. Star Citizen® is a trademark of Cloud Imperium Rights LLC.
+MIT. APSIS is an unofficial tool, not affiliated with Cloud Imperium Games. Star Citizen® is a trademark of Cloud Imperium Rights LLC.
 
 *gnmrclss*
